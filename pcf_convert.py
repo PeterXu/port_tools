@@ -120,10 +120,17 @@ if __name__ == '__main__':
 	if len(sys.argv) != 2:
 		print "usage: %s file|dir" % sys.argv[0]
 		sys.exit(1)
-
 	fdir = sys.argv[1]
-	if not os.path.isdir(fdir) and os.path.exists(fdir):
-		proc_pcf(fdir)
+	if not os.path.exists(fdir):
+		print "%s is not exist!" % fdir
+		sys.exit(1)
+
+	if os.path.isdir(fdir):
+		files = os.listdir(fdir)
 	else:
-		print "currently not support dir"
+		files = [fdir]
+	for f in files: 
+		exts = os.path.splitext(f)
+		if len(exts) > 1 and exts[1] == ".pcf":
+			proc_pcf(f)
 	sys.exit(0)
