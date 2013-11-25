@@ -114,8 +114,8 @@ def proc_pcf(fname):
 
 
 if __name__ == '__main__':
-	if not os.path.exists("./cisco_decrypt"):
-		print "cisco_decrypt is not exist, pls check current path or build it referred in cisco_decrypt.c"
+	if not os.path.exists("./cisco-decrypt"):
+		print "cisco-decrypt is not exist, pls check current path or build it referred in cisco_decrypt.c"
 		sys.exit(1)
 	if len(sys.argv) != 2:
 		print "usage: %s file|dir" % sys.argv[0]
